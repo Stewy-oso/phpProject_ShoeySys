@@ -6,9 +6,6 @@
     header("Location: login.html");
     exit;
   }
-  else {
-    
-  }
 ?>
 
 <!doctype html>
@@ -29,7 +26,7 @@
         <ul>
           <li><a href="index.php">Home</a></li>
           <li><a href="basket.php">Cart</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a href="login.html">Logout</a></li>
         </ul>
       </nav>
     </header>
