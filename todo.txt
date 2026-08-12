@@ -1,0 +1,25 @@
+1. Fix custID first
+    - Glitch where when logged out and logged back in as another user, you logged back in as the previous custID
+
+2. Add Customer
+    - Find whatever "add" function I already have
+
+3. Stock checking
+    - Concept: get current, compared requested qty, return true/false?
+
+4. Stock level update
+    - When pieces sold, it takes away from qty in db
+
+5. Add See Order function  
+    - Apparently the one I have is buggy
+
+6. Delete order Summary buggy
+    - Disappears/doesnt disappear when needed.
+
+7. Create Update function
+    - Could be update customer details?
+
+8. Create Delete function
+    - Maybe Delete customer section?
+
+9. Improve UX
