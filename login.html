@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="includes/indexStyle.css" />
+    <title>Shoey || Login</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>Shoey</h1>
+      </div>
+    </header>
+
+    <main>
+      <section class="login-form">
+        <fieldset>
+          <legend>Login</legend>
+
+          <form action="logic/loginLogic.php" method="post">
+            <label for="email">Email</label><br />
+            <input type="email" id="formInput" name="email" /><br /><br />
+
+            <label for="password">Password</label><br />
+            <input type="password" id="formInput" name="password" /><br /><br />
+
+            <input type="submit" value="Login" id="formSubmit" />
+          </form>
+        </fieldset>
+
+        <h3>No account? Click <a href="createAccount.html">here</a></h3>
+      </section>
+    </main>
+
+    <footer>&copy; Shoey</footer>
+  </body>
+</html>
