@@ -301,4 +301,36 @@
             echo "ERROR: " . $e->getMessage();
         }
     }
+
+    function seePastOrders($custID) {
+        $pdo = getDBConnection();
+
+        $sql = "SELECT O.orderID, O.orderDate, O.status, O.totalAmt, O_T.quantity, O_T.unitPrice, P.productName
+                FROM Orders O
+                INNER JOIN Order_Items O_T ON O.OrderID = O_T.OrderID
+                INNER JOIN Products P ON P.productID = O_T.productID
+                WHERE O.CustID = :custID
+                ORDER BY O.orderDate DESC";
+
+        $result = $pdo->prepare($sql);
+
+        $result->bindValue(':custID', $custID);
+        
+        try {    
+            $result->execute();
+
+            while($row = $result->fetch()) {
+                echo $row['OrderID'] . '<br>';
+            }
+        }
+        catch(PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+    }
+
+    // After break:
+    // Create SeePastOrders.html/php
+    // Alter other files so user can access thorughout their exp
+    // "Beautify" the rows and style them
+    // Commit & Push and call it a day
 ?>

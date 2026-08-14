@@ -3,7 +3,7 @@
   include "includes/functions.php";
   
   if (!isset($_SESSION['userID'])) {
-    header("Location: login.html");
+    header("Location: login.php");
     exit;
   }
 ?>
@@ -26,7 +26,7 @@
         <ul>
           <li><a href="index.php">Home</a></li>
           <li><a href="basket.php">Cart</a></li>
-          <li><a href="login.html">Logout</a></li>
+          <li><a href="logic/logout.php">Logout</a></li>
         </ul>
       </nav>
     </header>

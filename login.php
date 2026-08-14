@@ -1,3 +1,11 @@
+<?php 
+  if(isset($_GET['logout'])) {
+    if($_GET['logout'] === "success") {
+      echo "<p class='alert'>Successfully logged out!</p>";
+    }
+  }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -36,3 +44,5 @@
     <footer>&copy; Shoey</footer>
   </body>
 </html>
+
+

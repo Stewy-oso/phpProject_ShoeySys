@@ -32,7 +32,7 @@ $total = calcTotal($_SESSION['basket']);
         <ul>
           <li><a href="index.php">Home</a></li>
           <li><a href="basket.php">Cart</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a href="logic/logout.php">Logout</a></li>
         </ul>
       </nav>
     </header>

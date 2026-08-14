@@ -2,6 +2,6 @@
     session_start();
     session_unset();
     session_destroy();
-    header("Location: login.html");
-    exit();
+    header("Location: ../login.php?logout=success");
+    exit("successfully logged out");
 ?>
