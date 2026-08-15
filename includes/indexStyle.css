@@ -32,6 +32,10 @@ main {
   flex: 1;
 }
 
+#underline {
+  text-decoration: underline;
+}
+
 /* ############################# 
             HEADER 
 ############################## */
@@ -380,4 +384,33 @@ footer {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
+}
+
+/* #############################
+        Order Section
+############################## */
+
+.orderContainer {
+  width: 75%;
+  height: fit-content;
+  padding: 1rem;
+  background-color: #23395b;
+  color: #161925;
+  margin: 1rem 2rem;
+  border: 2px solid #161925;
+  border-radius: 15px;
+}
+
+.orderInfo {
+  text-align: left;
+  width: max-content;
+  padding: 1rem 2rem 1rem 1rem;
+  /* border: 1px solid #fff; */
+  line-height: 2rem;
+}
+
+.productInfo {
+  /* border: 1px solid #161925; */
+  text-align: right;
+  line-height: 2.5rem;
 }

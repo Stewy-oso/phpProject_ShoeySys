@@ -319,9 +319,36 @@
         try {    
             $result->execute();
 
+            $previousOrder = '';
+            $previousTotal = '';
             while($row = $result->fetch()) {
-                echo $row['OrderID'] . '<br>';
-            }
+                $currentOrder = $row['orderID'];
+                
+                if($currentOrder != $previousOrder) {
+                    if($previousOrder != $currentOrder) {
+                        echo '<hr>';
+                        echo '<h2>Total: ' . $previousTotal . '</h2>';
+                        echo '</div>';
+                    }
+                    $previousTotal = $row['totalAmt'];
+                    echo '<div class="orderContainer">';
+                    echo '<div class="orderInfo">';
+                    echo '<h2>Order ID: ' . $row['orderID'] . '</h2>';
+                    echo '<h3>Date: ' . $row['orderDate'] . '</h3>';
+                    echo '<h3>Status: ' . $row['status'] . '</h3>';
+                    echo '</div>';
+                    echo '<hr>';
+                    }
+                    echo '<div class="productInfo">';
+                    echo '<h2 id="underline">' . $row['productName'] . '</h2>';
+                    echo '<h3>Quantity Ordered: ' . $row['quantity'] . '</h3>';
+                    echo '<h4>Price per Unit: ' . $row['unitPrice'] . '</h4>';
+                    echo '</div>';
+                    $previousOrder = $currentOrder; 
+                    
+                }
+
+                echo '</div>';
         }
         catch(PDOException $e) {
             echo "ERROR: " . $e->getMessage();
