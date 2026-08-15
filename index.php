@@ -18,18 +18,40 @@
   </head>
   <body>
     <header>
-      <div class="logo">
+    <div class="logo">
         <h1>Shoey</h1>
-      </div>
+    </div>
 
-      <nav>
+    <nav>
         <ul>
-          <li><a href="index.php">Home</a></li>
-          <li><a href="basket.php">Cart</a></li>
-          <li><a href="logic/logout.php">Logout</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="basket.php">Cart</a></li>
+
+            <li class="profileMenu">
+              <button onclick="toggleProfileMenu()" id="profileBtn">Profile</button>
+
+              <ul class="profileDropdown">
+                  <li><a href="profile.php">Profile</a></li>
+                  <li><a href="previousOrders.php">Past Orders</a></li>
+                  <li><hr></li>
+                  <li><a href="logic/logout.php">Logout</a></li>
+              </ul>
+            </li>
         </ul>
-      </nav>
-    </header>
+    </nav>
+</header>
+
+<script>
+  function toggleProfileMenu() {
+      const menu = document.querySelector(".profileDropdown");
+
+      if (menu.style.display === "block") {
+          menu.style.display = "none";
+      } else {
+          menu.style.display = "block";
+      }
+  }
+</script>
 
     <hr />
 

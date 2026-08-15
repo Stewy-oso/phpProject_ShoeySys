@@ -327,7 +327,7 @@
                 if($currentOrder != $previousOrder) {
                     if($previousOrder != $currentOrder) {
                         if($previousOrder != '') {
-                            echo '<h2>Total: ' . $previousTotal . '</h2>';
+                            echo '<h2 class="productInfo">Total: ' . $previousTotal . '</h2>';
                             echo '</div>';
                         }
                     }
