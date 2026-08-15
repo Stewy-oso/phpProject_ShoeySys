@@ -326,9 +326,10 @@
                 
                 if($currentOrder != $previousOrder) {
                     if($previousOrder != $currentOrder) {
-                        echo '<hr>';
-                        echo '<h2>Total: ' . $previousTotal . '</h2>';
-                        echo '</div>';
+                        if($previousOrder != '') {
+                            echo '<h2>Total: ' . $previousTotal . '</h2>';
+                            echo '</div>';
+                        }
                     }
                     $previousTotal = $row['totalAmt'];
                     echo '<div class="orderContainer">';
