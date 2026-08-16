@@ -1,8 +1,6 @@
 <?php
   session_start();
   include "includes/functions.php";
-
-  $_SESSION['userID'] = 9;
   
   if (!isset($_SESSION['userID'])) {
     header("Location: login.php");

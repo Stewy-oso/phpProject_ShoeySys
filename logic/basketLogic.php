@@ -107,6 +107,8 @@ if (isset($_POST['checkout'])) {
                 $qty,
                 $product['price']
             );
+
+            updateStock($productID, $qty);
         }
 
         $_SESSION['basket'] = [];

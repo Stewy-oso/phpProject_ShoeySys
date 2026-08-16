@@ -101,6 +101,29 @@
         }
     }
 
+    function updateStock($p_id, $qty) {
+
+        $pdo = getDBConnection();
+
+        $sql = 'UPDATE PRODUCTS
+                SET stock_qty = stock_qty - :quantity
+                WHERE productID = :p_id';
+        
+        $result = $pdo->prepare($sql);
+
+        $result->bindValue(':p_id', $p_id);
+        $result->bindValue(':quantity', $qty);
+
+        try {
+            $result->execute();
+            echo 'Stock Updated!';
+        }
+        catch(PDOException $e) {
+            $output = "Error! " . $e->getMessage();
+            echo $output;
+        }
+    }
+
     ##############################################################
     // Account Functions
     ##############################################################
@@ -355,10 +378,4 @@
             echo "ERROR: " . $e->getMessage();
         }
     }
-
-    // After break:
-    // Create SeePastOrders.html/php
-    // Alter other files so user can access thorughout their exp
-    // "Beautify" the rows and style them
-    // Commit & Push and call it a day
 ?>
