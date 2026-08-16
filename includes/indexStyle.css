@@ -266,11 +266,12 @@ footer {
 }
 
 /* ######################################### 
-              Create Account Page 
+              Profile Section 
 ######################################### */
 
 .create-section,
-.delete-section {
+.delete-section,
+.update-section {
   background-color: #406e8e;
   color: #fff;
   width: 50%;
@@ -281,7 +282,8 @@ footer {
 }
 
 .create-section form,
-.delete-section form {
+.delete-section form,
+.update-section form {
   width: fit-content;
   margin: auto;
 }
@@ -316,14 +318,16 @@ footer {
 }
 
 .create-section fieldset,
-.delete-section fieldset {
+.delete-section fieldset,
+.update-section fieldset {
   border-color: #23395b;
   border-radius: 10px;
   transition: border-color 0.5s;
 }
 
 .create-section fieldset:hover,
-.delete-section fieldset:hover {
+.delete-section fieldset:hover,
+.update-section fieldset:hover {
   border-color: #fff;
 }
 

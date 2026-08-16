@@ -175,6 +175,34 @@
         return false;
     }
 
+    function updateAccountDetails($firstname, $surname, $phoneNo, $address, $custID) {
+        
+        $pdo = getDBConnection();
+
+        $sql = 'UPDATE CUSTOMER
+                SET firstname = :firstname, 
+                    surname = :surname, 
+                    phoneNo = :phoneNo, 
+                    address = :address
+                WHERE CustID = :custID';
+
+        $result = $pdo->prepare($sql);
+        $result->bindValue( ':firstname' , $firstname);
+        $result->bindValue( ':surname' , $surname);
+        $result->bindValue( ':phoneNo' , $phoneNo);
+        $result->bindValue( ':address' , $address);
+        $result->bindValue( ':custID' , $custID);
+
+        try {
+            $result->execute();
+            echo 'Account Details updated';
+        }
+        catch(PDOException $e) {
+            $output = "Error! " . $e->getMessage();
+            echo $output;
+        }
+    }
+
     
     ##############################################################
     // Calculations AND Validation
@@ -219,6 +247,27 @@
         }
         if(empty($dOB)) {
             $errors[] = "Date Of Birth is required";
+        }
+        if(empty($address)) {
+            $errors[] = "Address is required";
+        }
+
+        return $errors;
+        
+    }
+
+    function validateUpdateForm($firstname, $surname, $phoneNo, $address) {
+        
+        $errors = [];
+    
+        if(empty($firstname)) {
+            $errors[] = "Firstname is required";
+        }
+        if(empty($surname)) {
+            $errors[] = "Surname is required";
+        }
+        if(strlen($phoneNo) < 10 || strlen($phoneNo) > 11) {
+            $errors[] = "Valid phone number is required";
         }
         if(empty($address)) {
             $errors[] = "Address is required";

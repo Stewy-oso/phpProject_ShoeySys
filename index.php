@@ -31,7 +31,7 @@
               <button onclick="toggleProfileMenu()" id="profileBtn">Profile</button>
 
               <ul class="profileDropdown">
-                  <li><a href="profile.php">Profile</a></li>
+                  <li><a href="profile.html">Profile</a></li>
                   <li><a href="previousOrders.php">Past Orders</a></li>
                   <li><hr></li>
                   <li><a href="logic/logout.php">Logout</a></li>

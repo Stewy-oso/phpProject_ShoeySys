@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="includes/indexStyle.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>Shoey</h1>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="basket.php">Cart</a></li>
+
+          <li class="profileMenu">
+            <button onclick="toggleProfileMenu()" id="profileBtn">
+              Profile
+            </button>
+
+            <ul class="profileDropdown">
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="previousOrders.php">Past Orders</a></li>
+              <li><hr /></li>
+              <li><a href="logic/logout.php">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <script>
+      function toggleProfileMenu() {
+        const menu = document.querySelector(".profileDropdown");
+
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        } else {
+          menu.style.display = "block";
+        }
+      }
+    </script>
+
+    <main>
+      <section class="update-section">
+        <fieldset>
+          <legend>Update Details</legend>
+          <form action="logic/accounts.php" name="accountUpdate" method="post">
+            <label for="firstname">Firstname: </label>
+            <input type="text" name="firstname" class="form-input" /> <br />
+
+            <label for="surname">Surname: </label>
+            <input type="text" name="surname" class="form-input" /> <br />
+
+            <label for="phoneNo">Phone Number: </label>
+            <input type="text" name="phoneNo" class="form-input" /> <br />
+
+            <label for="address">Address: </label>
+            <input type="text" name="address" class="form-input" /> <br />
+            <br /><br />
+
+            <label for="email">Email: </label>
+            <input type="email" name="email" class="form-input" /> <br />
+            <label for="password">Current Password: </label>
+            <input type="password" name="password" class="form-input" />
+            <br /><br />
+            <input
+              type="submit"
+              name="update"
+              class="form-submit"
+              value="Update Details"
+            />
+          </form>
+        </fieldset>
+      </section>
+
+      <section class="delete-section">
+        <fieldset>
+          <legend>Delete Account</legend>
+          <form action="logic/accounts.php" name="accountDelete" method="post">
+            <label for="email">Email:</label>
+            <input type="email" name="email" class="form-input" /> <br />
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" class="form-input" />
+            <br /><br />
+            <input
+              type="submit"
+              name="delete"
+              class="form-submit"
+              value="Delete Account"
+            />
+          </form>
+        </fieldset>
+      </section>
+    </main>
+    <footer>&copy; Shoey</footer>
+  </body>
+</html>

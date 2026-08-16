@@ -1,4 +1,10 @@
 <?php 
+  session_start();
+  
+  if (!isset($_SESSION['userID'])) {
+    header("Location: login.php");
+    exit;
+  }
 
     require_once '../includes/functions.php';
 
@@ -38,11 +44,38 @@
             }
         }
 
-        elseif(isset($_POST['delete'])) {
+        if(isset($_POST['update'])) {
+            $firstname = trim($_POST['firstname'] ?? '');
+            $surname = trim($_POST['surname'] ?? '');
             $email = trim($_POST['email'] ?? '');
             $password = trim($_POST['password'] ?? '');
+            $phoneNo = trim($_POST['phoneNo'] ?? '');
+            $address = trim($_POST['address'] ?? '');
 
+            $errors = validateUpdateForm($firstname, $surname, $phoneNo, $address);
+            $verified = verifyPassword($email, $password);
+            
+            if(empty($errors) && $verified == true) {
 
+                $custID = $_SESSION['userID'];
+                updateAccountDetails($firstname, $surname, $phoneNo, $address, $custID);
+            }
+            else {
+                foreach($errors as $error) {
+                    echo $error . '<br>';
+                }
+
+                if($verified == false) {
+                    echo 'Account credentials incorrect! Check Password?';
+                }
+            }
         }
+
+        
     }
+
+    // if(isset($_POST['delete'])) {
+    //         $email = trim($_POST['email'] ?? '');
+    //         $password = trim($_POST['password'] ?? '');
+    //     }
 ?>
