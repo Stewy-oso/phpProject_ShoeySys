@@ -203,6 +203,25 @@
         }
     }
 
+    function deleteAccount($custID, $email, $password) {
+        $pdo = getDBConnection();
+
+        $sql = 'DELETE FROM CUSTOMERS WHERE CUSTID = :custID';
+
+        $result = $pdo->prepare($sql);
+        $result->bindValue(':custID', $custID);
+        // $result->bindValue(':email', $email);
+        // $result->bindValue(':password', $password);
+
+        try {
+            $result->execute();
+        }
+        catch(PDOException $e) {
+            $output = "Error! " . $e->getMessage();
+            echo $output;
+        }
+    }
+
     
     ##############################################################
     // Calculations AND Validation

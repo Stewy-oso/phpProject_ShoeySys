@@ -1,3 +1,27 @@
+<?php 
+  session_start();
+  include "includes/functions.php";
+  
+  if (!isset($_SESSION['userID'])) {
+    header("Location: login.php");
+    exit;
+    }
+
+  if (isset($_SESSION['successMsg'])) {
+    echo '<script>alert("' . $_SESSION['successMsg'] . '");</script>';
+    unset($_SESSION['successMsg']);
+
+    if(!isset($_SESSION['successMsg'])) {
+      header('Location: logic/logout.php');
+      exit;
+    }
+  }
+  if(isset($_SESSION['failMsg'])) {
+    echo '<script>alert("' . $_SESSION['failMsg'] . '");</script>';
+    unset($_SESSION['failMsg']);
+  }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -23,7 +47,7 @@
             </button>
 
             <ul class="profileDropdown">
-              <li><a href="profile.html">Profile</a></li>
+              <li><a href="profile.php">Profile</a></li>
               <li><a href="previousOrders.php">Past Orders</a></li>
               <li><hr /></li>
               <li><a href="logic/logout.php">Logout</a></li>
@@ -98,6 +122,7 @@
         </fieldset>
       </section>
     </main>
+
     <footer>&copy; Shoey</footer>
   </body>
 </html>

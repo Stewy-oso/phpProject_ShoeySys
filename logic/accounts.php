@@ -66,7 +66,7 @@
                 }
 
                 if($verified == false) {
-                    echo 'Account credentials incorrect! Check Password?';
+                    $_SESSION['successMsg'] = 'Account credentials incorrect! Check Password?';
                 }
             }
         }
@@ -74,8 +74,24 @@
         
     }
 
-    // if(isset($_POST['delete'])) {
-    //         $email = trim($_POST['email'] ?? '');
-    //         $password = trim($_POST['password'] ?? '');
-    //     }
+    if(isset($_POST['delete'])) {
+        $custID = $_SESSION['userID'];
+
+        $email = trim($_POST['email']);
+        $password = trim($_POST['password']);
+
+        $verified = verifyPassword($email, $password);
+
+        if(!empty($verified)) {
+            deleteAccount($custID);
+            $_SESSION['successMsg'] = 'Account Deleted!';
+            header('Location: ../profile.php');
+            exit;
+        }
+        else {
+            $_SESSION['failMsg'] = 'Account credentials incorrect! Check Email or Password?';
+            header('Location: ../profile.php');
+            exit;
+        }
+    }
 ?>
