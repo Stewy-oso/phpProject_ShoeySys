@@ -111,6 +111,13 @@
       </section>
     </main>
 
+    <?php
+    if (isset($_SESSION['successMsg'])) {
+      echo '<script>alert("' . $_SESSION['successMsg'] . '");</script>';
+      unset($_SESSION['successMsg']);
+    }
+    ?>
+
     <!-- <hr> -->
     <footer>&copy; Shoey</footer>
   </body>

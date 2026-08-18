@@ -86,6 +86,16 @@ $total = calcTotal($_SESSION['basket']);
         </section>
     </main>
 
+    <?php 
+    if (isset($_SESSION['successMsg'])) {
+      echo '<script>alert("' . $_SESSION['successMsg'] . '");</script>';
+      unset($_SESSION['successMsg']);
+
+      echo '<h2 class="message">Click <a href="previousOrders.php">here</a> to see your order</h2>';
+    }
+
+    ?>
+
     <footer>&copy; Shoey</footer>
   </body>
 </html>

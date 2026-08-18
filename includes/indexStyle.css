@@ -36,6 +36,18 @@ main {
   text-decoration: underline;
 }
 
+.message {
+  background-color: #406e8e;
+  border: 1px solid #161925;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: #e1e8ed;
+  text-align: center;
+  width: fit-content;
+  padding: 0 1rem;
+  margin: auto;
+}
+
 /* ############################# 
             HEADER 
 ############################## */
@@ -69,9 +81,6 @@ nav a {
 
 nav a:hover {
   color: #8ea8c3;
-}
-
-.profileMenu {
 }
 
 #profileBtn {

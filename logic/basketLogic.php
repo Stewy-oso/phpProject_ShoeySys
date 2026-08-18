@@ -26,6 +26,8 @@ if (isset($_POST['add'])) {
             $_SESSION['basket'][$productID] = 1;
         }
     }
+    
+    $_SESSION['successMsg'] = 'Item added!';
 
     // * Title: How to make a redirect in PHP? 
     // * Author: GeeksforGeeks 
@@ -33,8 +35,10 @@ if (isset($_POST['add'])) {
     // *
     // * Availability: https://www.geeksforgeeks.org/php/how-to-make-a-redirect-in-php/
 
+    // header("Location: ../basket.php");
+    // exit;
 
-    header("Location: ../basket.php");
+    header("Location: ../index.php");
     exit;
 }
 
@@ -55,6 +59,8 @@ if (isset($_POST['decrease'])) {
         }
     }
 
+    $_SESSION['successMsg'] = 'Item decreased.';
+
     header("Location: ../basket.php");
     exit;
 }
@@ -71,6 +77,8 @@ if (isset($_POST['remove'])) {
         unset($_SESSION['basket'][$productID]);
     }
 
+    $_SESSION['successMsg'] = 'Removed item!';
+
     header("Location: ../basket.php");
     exit;
 }
@@ -78,6 +86,8 @@ if (isset($_POST['remove'])) {
 if (isset($_POST['clear'])) {
 
     $_SESSION['basket'] = [];
+
+    $_SESSION['successMsg'] = 'Sucessfully cleared the basket!';
 
     header("Location: ../basket.php");
     exit;
@@ -113,7 +123,7 @@ if (isset($_POST['checkout'])) {
 
         $_SESSION['basket'] = [];
 
-        echo "Successfully checked out!";
+        $_SESSION['successMsg'] = 'Sucessfully checked out!';
     }
 
     // * Title: How to make a redirect in PHP? 
